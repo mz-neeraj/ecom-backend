@@ -1,6 +1,10 @@
 // server.js
 const express = require('express');
 const mongoose = require('mongoose');
+//const multer = require('multer');
+//const path = require('path');
+//const bodyParser = require('body-parser');
+
 const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cors = require('cors');
@@ -8,6 +12,8 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
+//console.log(__dirname);
+//app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 mongoose.connect('mongodb://localhost:27017/ecommerce');
 

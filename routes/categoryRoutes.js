@@ -13,4 +13,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/add', async (req, res) => {
+  try {
+   
+      const { name } = req.body;
+      const category = new Category({ name });
+      await category.save();
+      res.status(201).json({ message: 'Category added successfully', category });
+
+  } catch (error) {
+    console.log("working 5");
+      res.status(500).json({ error: 'Failed to add category' });
+  }
+});
+
 module.exports = router;
